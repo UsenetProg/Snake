@@ -1,18 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Rigidbody body;
+
+    public float speed;
+
+    private void Update()
     {
-        
+    }
+    public void SnakeSpeed()
+    {
+        body.velocity = new Vector3(0, 0, speed);
+    }
+    public void PlayerTail()
+    {
+        body = Instantiate(body, transform);
+        body.transform.position = CalculateTailPosition();
     }
 
-    // Update is called once per frame
-    void Update()
+    private Vector3 CalculateTailPosition()
     {
-        
+        return new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 }
