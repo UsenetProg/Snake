@@ -1,14 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Food : MonoBehaviour
 {
+    private Vector3 newPosition;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player snakehead))
         {
-            snakehead.PlayerTail();
+            snakehead.Tail();
             Destroy(gameObject);
 
         }

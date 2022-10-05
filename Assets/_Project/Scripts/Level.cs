@@ -7,7 +7,7 @@ public class Level : MonoBehaviour
     public Transform Ground;
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.collider.TryGetComponent(out Player player))
+        if (collision.collider.TryGetComponent(out Player player))
         {
             player.SnakeSpeed();
         }
